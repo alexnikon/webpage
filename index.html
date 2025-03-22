@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+      <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="viewport" content="heihgt=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+            <meta name="apple-mobile-web-app-title" content="nikonOS">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+            <title>nikonOS</title>
+            <link rel="stylesheet" href="styles/style.css">
+            <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon/favicon-32x32.png">
+            <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon/favicon-16x16.png">
+            <link rel="shortcut icon" href="/favicon/favicon.ico">
+            <meta name="theme-color" 
+                  content="#ffffff" 
+                  media="(prefers-color-scheme: light)">
+            <meta name="theme-color" 
+                  content="#1b1d1e" 
+                  media="(prefers-color-scheme: dark)">
+            <script src="scripts/terminal.js"></script>
+      </head>
+<body>
+      <div class ="header">
+            <div class ="logo">
+            <pre class ="pre_logo">
+       _ _                ___  ____    
+ _ __ (_) | _____  _ __  / _ \/ ___|   
+| '_ \| | |/ / _ \| '_ \| | | \___ \   
+| | | | |   < (_) | | | | |_| |___) |  
+|_| |_|_|_|\_\___/|_| |_|\___/|____/         
+            </pre>
+            <span class="welcome-message">
+Welcome to nikonOS 
+Type "help" to display prompts
+            </span>
+      </div>
+      
+      <div id="terminal-container" class="terminal-container">
+            <!-- Previous output will appear here -->
+            
+            <!-- Input line -->
+            <div id="terminal-input-line" class="line">
+                  <p><span id="prompt" style="color: var(--prompt-color)">➜</span> ~ <span class="command" id="command-display"></span><span class="cursor">|</span></p>
+            </div>
+      </div>
+      <input type="text" id="command-input" class="command-input" autocomplete="off" autofocus>
+</body>
+</html>
