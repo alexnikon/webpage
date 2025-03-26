@@ -22,8 +22,9 @@
     --link-hover: #ff79c6;
 }
 
+/* Light theme */
 @media (prefers-color-scheme: light) {
-    :root {
+    :root:not([data-theme="dark"]) {
         --bg-color: #ffffff;
         --terminal-bg-color: #ffffff;
         --logo-color: red;
@@ -36,6 +37,35 @@
         --link-visited: #551a8b;
         --link-hover: #ff3366;
     }
+}
+
+/* Manual theme settings that override system preference */
+:root[data-theme="light"] {
+    --bg-color: #ffffff;
+    --terminal-bg-color: #ffffff;
+    --logo-color: red;
+    --text-color: #333333;
+    --command-color: #944927;
+    --result-color: #555555;
+    --cursor-color: #20111a;
+    --prompt-color: #d14;
+    --link-color: #0066cc;
+    --link-visited: #551a8b;
+    --link-hover: #ff3366;
+}
+
+:root[data-theme="dark"] {
+    --bg-color: #1b1d1e;
+    --terminal-bg-color: #1b1d1e;
+    --logo-color: green;
+    --text-color: #f8f8f2;
+    --command-color: #e7dc72;
+    --result-color: #646464;
+    --cursor-color: #efe30e;
+    --prompt-color: #ff5555;
+    --link-color: #8be9fd;
+    --link-visited: #bd93f9;
+    --link-hover: #ff79c6;
 }
 
 * {
@@ -55,6 +85,21 @@ body {
     font-family: Iosevka;
     font-size: 17px;
     color: var(--logo-color);
+}
+
+/* Apply neon effect only in dark theme */
+:root:not([data-theme="light"]) .pre_logo {
+    text-shadow: 0 0 1px var(--logo-color, 0.3);
+}
+
+:root[data-theme="dark"] .pre_logo {
+    text-shadow: 0 0 3px var(--logo-color, 0.9);
+}
+
+@media (prefers-color-scheme: light) {
+    .pre_logo {
+        text-shadow: none;
+    }
 }
 
 .logo {
@@ -105,6 +150,7 @@ body {
     z-index: -9999;
     background-color: var(--terminal-bg-color);
     color: var(--terminal-bg-color);
+    outline: none;
 }
 
 .output-line {
@@ -200,7 +246,7 @@ a:hover {
 }
 
 .welcome-message {
-  color: yellowgreen;
+  color: var(--command-color);
   font-family: Iosevka;
   font-size: 17px;
   white-space: pre;
@@ -208,9 +254,209 @@ a:hover {
   margin-top: 10px;
 }
 
-/* Обновите медиа-запрос для светлой темы */
+/* Update light theme specific styling for welcome message */
 @media (prefers-color-scheme: light) {
   .welcome-message {
-      color: blue; /* Оставляем magenta и для светлой темы */
+      color: var(--command-color);
   }
+}
+
+/* Fix welcome message color for manual theme switching */
+:root[data-theme="light"] .welcome-message {
+  color: var(--command-color);
+}
+
+:root[data-theme="dark"] .welcome-message {
+  color: var(--command-color);
+  text-shadow: 0 0 1px var(--command-color, 0.3);
+}
+
+/* Apply neon effect to welcome message only in dark theme (system preference) */
+:root:not([data-theme="light"]) .welcome-message {
+  text-shadow: 0 0 1px var(--command-color, 0.3);
+}
+
+@media (prefers-color-scheme: light) {
+  .welcome-message {
+    text-shadow: none;
+  }
+}
+
+/* Terminal Loading Animation */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+/* Override old loading styles */
+.loading-content {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.loading-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards, typing 1.5s steps(30, end);
+    animation-delay: calc(var(--index) * 0.7s);
+}
+
+.loading-text::after {
+    content: "_";
+    position: absolute;
+    right: -10px;
+    animation: cursor 0.7s infinite;
+}
+
+.loading-bar {
+    background-color: var(--terminal-bg-color);
+    border: 1px solid var(--command-color);
+    width: 300px;
+    height: 20px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    font-family: monospace;
+    font-size: 18px;
+    line-height: 20px;
+    color: var(--command-color);
+    text-align: center;
+}
+
+.loading-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    animation: none;
+}
+
+.loading-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    background-color: var(--command-color);
+    opacity: 0.3;
+    animation: loadProgress 3s forwards;
+}
+
+@keyframes cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes loadProgress {
+    0% { width: 0%; }
+    10% { width: 20%; }
+    20% { width: 25%; }
+    30% { width: 40%; }
+    50% { width: 50%; }
+    70% { width: 75%; }
+    85% { width: 90%; }
+    100% { width: 100%; }
+}
+
+/* Remove old loading animation */
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+/* Old PC Rendering Animation */
+@keyframes oldPCRender {
+    from { clip-path: inset(0 0 100% 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes scanLines {
+    from { background-position: 0 0; }
+    to { background-position: 0 100px; }
+}
+
+.main-interface {
+    opacity: 0;
+    position: relative;
+    visibility: hidden;
+}
+
+.main-interface.show {
+    opacity: 1;
+    visibility: visible;
+    animation: oldPCRender 1.2s ease-out;
+}
+
+.main-interface.show::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 50%, 
+        rgba(0, 0, 0, 0.05) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: scanLines 1s linear;
+}
+
+/* Linux Boot Animation Styles */
+.linux-boot {
+    color: var(--text-color);
+    font-family: monospace;
+    font-size: 14px;
+    text-align: left;
+    white-space: pre;
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.linux-log-line {
+    opacity: 0;
+    animation: fadeIn 0.2s forwards;
+    line-height: 1.3;
+    margin-bottom: 2px;
+}
+
+.log-ok {
+    color: #0f0; /* Green for successful operations */
+    font-weight: bold;
+}
+
+.log-fail {
+    color: #f00; /* Red for failures */
+    font-weight: bold;
 }

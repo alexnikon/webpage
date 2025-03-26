@@ -22,29 +22,31 @@
             <script src="scripts/terminal.js"></script>
       </head>
 <body>
-      <div class ="header">
-            <div class ="logo">
-            <pre class ="pre_logo">
+      <div class="main-interface">
+            <div class ="header">
+                  <div class ="logo">
+                  <pre class ="pre_logo">
        _ _                ___  ____    
  _ __ (_) | _____  _ __  / _ \/ ___|   
 | '_ \| | |/ / _ \| '_ \| | | \___ \   
 | | | | |   < (_) | | | | |_| |___) |  
 |_| |_|_|_|\_\___/|_| |_|\___/|____/         
-            </pre>
-            <span class="welcome-message">
+                  </pre>
+                  <span class="welcome-message">
 Welcome to nikonOS 
 Type "help" to display prompts
-            </span>
-      </div>
-      
-      <div id="terminal-container" class="terminal-container">
-            <!-- Previous output will appear here -->
-            
-            <!-- Input line -->
-            <div id="terminal-input-line" class="line">
-                  <p><span id="prompt" style="color: var(--prompt-color)">➜</span> ~ <span class="command" id="command-display"></span><span class="cursor">|</span></p>
+                  </span>
             </div>
+            
+            <div id="terminal-container" class="terminal-container">
+                  <!-- Previous output will appear here -->
+                  
+                  <!-- Input line -->
+                  <div id="terminal-input-line" class="line">
+                        <p><span id="prompt" style="color: var(--prompt-color)">➜</span> ~ <span class="command" id="command-display"></span><span class="cursor">|</span></p>
+                  </div>
+            </div>
+            <input type="text" id="command-input" class="command-input" autocomplete="off" autofocus>
       </div>
-      <input type="text" id="command-input" class="command-input" autocomplete="off" autofocus>
 </body>
 </html>
