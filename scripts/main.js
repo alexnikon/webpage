@@ -69,13 +69,4 @@ function initInteractiveElements() {
             }, 150);
         });
     });
-
-    // Configuration download link
-    document.querySelector('.config-card .btn').addEventListener('click', function(e) {
-        // Add click animation
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 150);
-    });
 }

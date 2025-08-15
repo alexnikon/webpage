@@ -158,6 +158,19 @@ p {
     margin: 0 auto;
 }
 
+/* Description Section - Special styling */
+#description .section-header {
+    margin-bottom: 2rem;
+}
+
+#description .section-description {
+    font-size: 18px;
+    color: var(--text-primary);
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
 /* Connection Section */
 .connection-grid {
     display: flex;
@@ -254,48 +267,6 @@ p {
 .platform-card .btn {
     margin-top: auto;
     width: 100%;
-    text-align: center;
-}
-
-/* Configuration Section */
-.config-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.config-card {
-    background: var(--bg-secondary);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    text-align: center;
-    transition: all 0.2s ease;
-}
-
-.config-card:hover {
-    border-color: var(--accent-primary);
-    box-shadow: var(--shadow);
-}
-
-.config-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.config-icon {
-    font-size: 2rem;
-}
-
-.config-description {
-    margin-top: 1rem;
-    color: var(--text-secondary);
-    font-size: 13px;
-    line-height: 1.5;
     text-align: center;
 }
 
@@ -442,11 +413,6 @@ p {
         padding: 1rem;
     }
     
-    .config-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
     h3 { font-size: 1.25rem; }
@@ -473,10 +439,6 @@ p {
     .platform-card {
         width: 100%;
         max-width: 200px;
-        padding: 1rem;
-    }
-    
-    .config-card {
         padding: 1rem;
     }
     
