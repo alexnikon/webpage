@@ -1,52 +1,129 @@
 <!DOCTYPE html>
-<html>
-      <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="viewport" content="heihgt=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
-            <meta name="apple-mobile-web-app-capable" content="yes" />
-            <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
-            <meta name="apple-mobile-web-app-title" content="nikonOS">
-            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-            <title>nikonOS</title>
-            <link rel="stylesheet" href="styles/style.css">
-            <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon/favicon-32x32.png">
-            <link rel="icon" type="image/x-icon" sizes="16x16" href="/favicon/favicon-16x16.png">
-            <link rel="shortcut icon" href="/favicon/favicon.ico">
-            <meta name="theme-color" 
-                  content="#ffffff" 
-                  media="(prefers-color-scheme: light)">
-            <meta name="theme-color" 
-                  content="#1b1d1e" 
-                  media="(prefers-color-scheme: dark)">
-            <script src="scripts/terminal.js"></script>
-      </head>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nikonVPN</title>
+    <meta name="description" content="nikonVPN - vpn для друзей">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iosevka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
 <body>
-      <div class="main-interface">
-            <div class ="header">
-                  <div class ="logo">
-                  <pre class ="pre_logo">
-       _ _                ___  ____    
- _ __ (_) | _____  _ __  / _ \/ ___|   
-| '_ \| | |/ / _ \| '_ \| | | \___ \   
-| | | | |   < (_) | | | | |_| |___) |  
-|_| |_|_|_|\_\___/|_| |_|\___/|____/         
-                  </pre>
-                  <span class="welcome-message">
-Welcome to nikonOS 
-Type "help" to display prompts
-                  </span>
+    <!-- Fixed Header -->
+    <header class="fixed-header">
+        <div class="container">
+            <h1 class="site-title">nikonVPN</h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Connection Section -->
+        <section id="connection" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">1. Оплати</h2>
+                </div>
+                <div class="connection-grid">
+                    <div class="connection-card" data-aos="fade-up">
+                        <div class="connection-header">
+                            <h3 class="connection-title">Стоимость</h3>
+                            <div class="connection-price">
+                                <span class="amount">300</span>
+                                <span class="currency">₽</span>
+                            </div>
+                        </div>
+                        <div class="connection-features">
+                        </div>
+                        <button class="btn btn-primary">Подключиться</button>
+                    </div>
+                </div>
             </div>
-            
-            <div id="terminal-container" class="terminal-container">
-                  <!-- Previous output will appear here -->
-                  
-                  <!-- Input line -->
-                  <div id="terminal-input-line" class="line">
-                        <p><span id="prompt" style="color: var(--prompt-color)">➜</span> ~ <span class="command" id="command-display"></span><span class="cursor">|</span></p>
-                  </div>
+        </section>
+
+        <!-- Download Client Section -->
+        <section id="download" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">2. Скачай клиент</h2>
+                </div>
+                <div class="platform-grid">
+                    <div class="platform-card" data-aos="fade-up">
+                        <div class="platform-icon">💻</div>
+                        <h3 class="platform-title">PC</h3>
+                        <a href="https://github.com/amnezia-vpn/amneziawg-windows-client/releases/" target="_blank" class="btn btn-outline">Скачать</a>
+                    </div>
+                    <div class="platform-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="platform-icon">🍎</div>
+                        <h3 class="platform-title">macOS</h3>
+                        <a href="https://apps.apple.com/us/app/amneziawg/id6478942365" target="_blank" class="btn btn-outline">Скачать</a>
+                    </div>
+                    <div class="platform-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="platform-icon">🤖</div>
+                        <h3 class="platform-title">Android</h3>
+                        <a href="https://play.google.com/store/apps/details?id=org.amnezia.awg" target="_blank" class="btn btn-outline">Скачать</a>
+                    </div>
+                    <div class="platform-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="platform-icon">📱</div>
+                        <h3 class="platform-title">iOS</h3>
+                        <a href="https://apps.apple.com/us/app/amneziawg/id6478942365" target="_blank" class="btn btn-outline">Скачать</a>
+                    </div>
+                </div>
             </div>
-            <input type="text" id="command-input" class="command-input" autocomplete="off" autofocus>
-      </div>
+        </section>
+
+        <!-- Configuration Section -->
+        <section id="configuration" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">3. Получи файл конфигурации</h2>
+                    <p class="section-description">Скачай конфигурационный файл для VPN клиента</p>
+                </div>
+                <div class="config-grid">
+                    <div class="config-card" data-aos="fade-up">
+                        <div class="config-header">
+                            <div class="config-icon">🔒</div>
+                        </div>
+                        <a href="https://example.com/vpn-config" target="_blank" class="btn btn-outline">Скачать</a>
+                        <p class="config-description">Скачаный файл добавь в vpn клиент</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Step Section -->
+        <section id="final" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">4. И будет тебе впн</h2>
+                    <p class="section-description">Наслаждайся безопасным и быстрым интернетом</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Переключить тему">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js"></script>
 </body>
 </html>

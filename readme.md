@@ -1,8 +1,10 @@
-# goomboldt.xyz
+# nikonVPN - vpn for friends
 
-------
 
-My personal web site.
+- **Email**: support@nikonvpn.com
+- **Website**: https://nikonvpn.com
 
-Design look like terminal with "grass" theme that i currently use in my terminal.
+---
+
+Make with ❤️ for nikonVPN
 
